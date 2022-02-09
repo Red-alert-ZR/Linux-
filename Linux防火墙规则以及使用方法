@@ -1,0 +1,125 @@
+#这个文件主要将Linux的防火要求规则以及使用方法。
+#首先 ，防火墙： 主机防火墙   网络防火墙
+#其中包括 硬件防火墙  软件防火墙
+
+
+iptables
+#确切说是用户代理
+
+netfilter
+#真正的防火墙的安全框架
+1.nat
+2.数据修改
+3.防火墙功能
+
+--------------------
+
+iptables是按流程规则（rules）办事的
+
+分为五链:
+prerouting 数据包刚进入网络层
+input 路由判断好了，进入用户空间
+output 用户空间发出，让路由判断从哪走
+postrouing 数据包通过网络口发出去
+forward 不进入用户空间，直接转发
+
+四表:
+filter表: 负责过滤（iptables_filter）
+可以连接 input forward output
+
+nat表: 网络地址转换（iptables_nat）
+除了forward以外都可以
+
+mangle表:解析报文，修改报文，封装报文（iptables_mangle）
+全部都可以
+
+raw表:关闭nat表的连接追踪(iptables_raw)
+prerouting output
+
+表的优先级关系:
+raw > mamgle > nat > filter
+
+=============================================
+
+处理动作:
+
+ADDEPT
+DROP
+REJECT
+SANT
+MASQUERADE
+DNAT
+REDIRECT
+LOG(把命令记录到/var/log/messages)
+
+----------------------------------
+
+filter过滤规则
+
+查看命令
+iptables -t filter -L 
+iptables -t raw -L 
+iptables -t mangle -L 
+iptables -t nat -L
+
+iptables --line-numberts -nvL INPUT
+iptables -vL INPUT
+iptables --line-numbers -vL INPUT
+
+-----------------------------------
+
+iptables -t filter -I INPUT -s [ip地址] -j DROP
+#拒绝来自[IP地址]的input流量
+
+iptables -t filter -A INPUT -s [IP地址] -j DROP
+#在列表最后添加
+
+iptables -D INPUT 10 
+#删除第10个
+
+iptables -t filter -F INPUT
+#删除filter中的所有INPUT
+
+yum -y install iptables-services
+#安装iptables服务
+
+service iptables save
+#保存防火墙规则
+
+/etc/sysconfig/iptables
+
+------------------------------------------
+
+#以下IP地址均随意。
+匹配方式:
+
+iptables -I INPUT -s [ip或网段] -j [动作]
+#常规操作
+
+iptables -I INPUT !-s[IP或网段] -j [动作]
+#取反操作
+
+iptables -I INPUT -s 1.1.1.1 -d 1.1.1.2 -j DROP
+#拒绝源是1.1.1.1目标是1.1.1.2的INPUT方向的数据包
+
+iptables -I INPUT -s 1.1.1.1 -i ens33 -p icmp -j DROP
+#拒绝来自网卡ens33的input方向的来自1.1.1.1的icmp请求
+
+拓展:
+
+iptables -I INPUT -S 1.1.1.1 -p tcp -m multiport --dports 22,3389,80 -j DROP
+#同时拒绝多个端口
+
+iptables -t filter -I INPUT -m iprange --src-range 1.1.1.1-1.1.1.2 -j DROP
+
+iptables -t filter -I OUTPUT -m iprange --src-range 1.1.1.1-1.1.1.2 -j DROP
+#同时拒绝多个ip
+
+iptables -t filter -I INPUT -p tcp --sport 80 -m string --algo bm --string "***" -j REJECT
+#string是匹配字符串， algo是匹配算法(bm, kmp)
+
+iptables -t filter -I OUTPUT -p tcp --dport 80 -m time --timestart 09:00:00 --timestop 19:00:00 -j DROP
+iptables -t filter -I OUTPUT -p tcp --dport 80 -m time --weekdays 6,7 -j DROP
+iptables -t filter -I OUTPUT -p tcp --dport 80 -m time --monthdays 27,28 -j DROP
+#时间拓展模块，可以自行探索
+=======================***
