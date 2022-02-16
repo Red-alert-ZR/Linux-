@@ -1,0 +1,115 @@
+数据备份
+
+/root/
+/home/
+/var/spool/mail/
+/etc/
+/var/xxxx/mysql/
+
+除了标准系统重要文件以外
+你安装的某些服务，也需要备份
+
+------------------
+
+磁带机：
+/dev/st0
+
+倒带
+mt -f /dev/st0 rewind
+
+擦除
+mt -f /dev/st0 erase
+
+出带
+mf -f /dev/st0 offline
+
+查看磁带的内容
+tar tvf /dev/st0 [位置]
+
+备份数据到磁带
+tar cvf /dev/st0 [位置]
+
+继续写入数据
+tar rvf /dev/st0 [位置]
+
+把磁带中的数据恢复到硬盘
+tar xvf /dev/st0 [位置]
+
+------------------------
+
+硬盘备份：
+
+完全备份，增量备份（累计增量备份，差异备份）
+
+累计增量备份:
+先完整备份一次，运行一段时间，比较现在的数据和完全备份的差异，只备份有差异的数据
+
+备份：
+完整备份|第二天增加的数据|第三天增加的数据....
+恢复：
+完整备份+第二天增加的数据+。。。。
+
+----------------
+
+差异备份:
+
+完整的备份|第二天增加的数据（第一次差异备份）
+完整的备份|第二天增加的数据+第三天增加的数据（第二次差异备份）
+....
+
+-----------------
+
+tar命令备份数据
+
+dump命令备份数据
+
+yum -y install dump
+yum -y install xfsdump
+
+dump实现增量备份
+支持0-9 0=完全备份 1~9=增量备份
+
+xfsdump -f /root/dump_sda1 /dev/sda1
+对/boot/文件夹进行备份
+
+xfsrestore -f /root/dump_sda1 /root/sda1-test
+把/root/dump_sda1恢复到/root/sda1-test
+
+xfsdump -1j -f /root/boot-z1 /dev/sda1
+进行增量备份
+
+===============================
+
+dd主要用来数据备份
+
+dd if="输入文件" of="输出文件" bs="数据块" count="数量"
+备份文件
+
+dd if=/dev/sda1 of=/root/boot.bak
+备份分区
+
+dd if=/root/boot.bak of=/dev/sda1
+恢复到分区
+
+dd if=/dev/sda1 of=/dev/sdb
+整盘备份
+
+dd if=/dev/cdrom of=/tmp/cd.iso
+把光盘中的内容制作成iso文件（光盘镜像）
+
+mkdir /mnt/cd
+建立一个挂载点
+
+mount -o loop /tmp/cd.iso /mnt/cd
+把光盘镜像挂载到/mnt/cd
+
+============================
+
+远程备份:
+rsync
+
+rsync -av /etc/passwd /tmp/1.txt
+把/etc/passwd同步到/tmp/1.txt上
+
+rsync -av /etc/passwd 192.168.1.10:/tmp/1.txt
+远程同步
