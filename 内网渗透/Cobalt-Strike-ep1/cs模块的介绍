@@ -1,0 +1,54 @@
+简单介绍一下CS的模块:
+1.Cobalt-Strike-ep1
+New Connection : 创建一个新的connect窗口，如果你需要其他人的协助。
+Preferences : 首选项，控制界面变化。
+Visualization : 将主机以不同的权限展示出来，告诉你不同的结果。
+VPN interfaces : 设置VPN的接口。
+Listeners : 创建一个监听器。
+Script Manager : 查看你的CS的脚本。
+Close : 关闭。
+
+2.View
+Applications : 显示被控制电脑的信息。
+Credentials : 显示你通过工具获取到密码。
+Downloads : 从被控制电脑上下载的文件，会放在这个地方。
+Event Log : 主机的上线记录。
+Keystrokes : 键盘记录。
+Proxy Pivots : 代理模块。
+Screenshots : 截图
+Script Console : 可以执行你的脚本。
+Targets :显示你的目标。
+Web Log : Web日志。
+
+3.Attacks
+Packages : 攻击的方式。
+        HTML Application : 基于HTML应用的攻击载荷。
+        MS Office Macro ：宏病毒。
+        Payload Generator : 生成器。
+        Windows Executable : 生成一个Windows的exe文件后门，但是是阶段性的。
+        Windows  Executable(S) : 生成一个完整的Windows的exe文件后门。（内网攻击）
+
+Web Drive-by : 
+        Manage : 管理器。
+        Clone Site : 克隆指定网站的样式。
+        Host File : 把克隆的东西放进去，而且可以修改其中的中间件之类的。
+        Scipted Web Delivery(S) : Web的一个攻击模块。
+        Signed Applet Attack : 运用java的社会工程学工具钓鱼的。
+        Smart Applet Attack : java的跨平台浏览器攻击方式。
+        Sustem Profiler : 客户端的检测工具。
+        
+Spear phish : 钓鱼模块。
+
+4.Reporting 
+Activity Report ：活动报告
+Hosts Report ：主持人报告
+indicators of Compromise ：适应性报告
+Sessions Report ：会议报告
+Social Engineering Report : 社会工程学报告
+Tactics,Techniques,and Procedures : 战术，技术和程序
+
+Reset Data
+Export Data
+
+
+
