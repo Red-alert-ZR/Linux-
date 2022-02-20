@@ -1,0 +1,28 @@
+在Attacks中新建一个Packages的攻击载荷。
+选择Windows Executable(S)之后会生成一个exe文件。
+在复制该文件后，想办法让你的肉鸡运行它。
+之后你的肉鸡就会在Listeners中上线。
+右键你的肉鸡：
+interact :后渗透模块，帮助黑客进行信息收集，权限提成，持久化，等等。
+Access : 
+  Dump Hashes :
+  Elevate : 进行权限提升的一个工具。
+  Golden Ticket : 
+  Make Token : 伪造这个用户，模拟用户身份
+  One-liner : 
+  Run Mimikatz : 运行猕猴桃🥝软件
+  Spawn As :
+Explore :
+  Browser Pivot :
+  Desktop(VNC) :
+  File Browser : 可以去看到你电脑里面有什么文件夹的。
+  Net View : 可以看到内网中其他主机的共享的东西。
+  Port Scan :
+  Process List : 查看肉鸡的进程，甚至是注入一个进程。
+  Screenshot : 截图。
+Pivoting : 
+  SOCKS Server : 以肉鸡的身份设置一个SOCK的代理。
+  Listener : 使用肉鸡的身份设置一个监听者，进行联机控制。
+  Deploy VPN : 
+Spawn : 模块派发shell，通过Spawn模块，发送指定身份的shell。
+Session :
