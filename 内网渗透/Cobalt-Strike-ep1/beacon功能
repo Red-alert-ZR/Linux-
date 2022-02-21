@@ -13,11 +13,11 @@ Access :
   Run Mimikatz : 运行猕猴桃🥝软件
   Spawn As :
 Explore :
-  Browser Pivot :
+  Browser Pivot : 劫持肉鸡的IE浏览器的，通过本地浏览器劫持当地cookie，实现免登录。
   Desktop(VNC) :
   File Browser : 可以去看到你电脑里面有什么文件夹的。
-  Net View : 可以看到内网中其他主机的共享的东西。
-  Port Scan :
+  Net View : 可以看到内网中其他主机的共享的东西。共享的域
+  Port Scan : 端口扫描
   Process List : 查看肉鸡的进程，甚至是注入一个进程。
   Screenshot : 截图。
 Pivoting : 
@@ -26,3 +26,8 @@ Pivoting :
   Deploy VPN : 
 Spawn : 模块派发shell，通过Spawn模块，发送指定身份的shell。
 Session :
+  Note : 记录。
+  Color :
+  Remove :
+  Sleep :
+  Exit :
