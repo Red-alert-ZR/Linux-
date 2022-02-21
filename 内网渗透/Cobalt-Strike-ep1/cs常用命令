@@ -1,0 +1,12 @@
+guest : 访客权限
+user ： 用户权限
+administrator ：管理员权限，人类可用最高权限
+system ： 机器可用最高权限
+TrustInstaller ： 信任的安装者，最高权限。
+
+help 在beason中没有图形界面执行和help, 只能在命令行中执行help。
+执行help后，左面会弹出命令名称，右面会弹出命令执行作用。
+下面我们会介绍几个:
+getuid : 获取当前用户的权限等级。
+getsystem : 获取system权限。
+getprivs = shell whoami /priv
