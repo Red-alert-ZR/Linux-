@@ -9,4 +9,17 @@ help 在beason中没有图形界面执行和help, 只能在命令行中执行hel
 下面我们会介绍几个:
 getuid : 获取当前用户的权限等级。
 getsystem : 获取system权限。
-getprivs = shell whoami /priv
+getprivs = shell whoami /priv ：获取肉鸡的特殊权限
+net localgroup : 显示服务器名称和计算机上本地的组的名称。
+net computers : 从与数据库中添加或删除计算机。
+net domain_trusts : 
+net logons : 列出当前登录的用户。
+net share : 显示有关本地计算机上共享的所有资源的信息。对于每个资源，将显示设备名称或路径名以及描述性注释。
+
+run : 运行。
+run cmd ipconfig  
+  
+execute notepad : 在后台默默执行什么程序
+powershell mkdir 123 :使用powershell来执行命令
+powerpick mkdir 123 : 不通过powershell来执行命令
+powershell-import : 把powershell加载到目标进程中，来执行powershell命令
