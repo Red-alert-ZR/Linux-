@@ -1,0 +1,7 @@
+#制作一个网上下载的马
+首先Attacks -->Packages -->HTML application
+选择需要的listner，和攻击的Method （powershell）
+记住下载文件的地址（evil.hta）
+然后Attacks -->Web Diver-by -->Host File 
+选择制作的evil.hta,修改Local URL的末尾为evil.hta,点击clone，并且记录网址。
+如果目标计算机下载并运行的evil.hta文件-----OK
