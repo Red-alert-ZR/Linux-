@@ -1,0 +1,60 @@
+c2客户端
+
+---------------------------------------------
+bind Ctrl+O {
+  show_message("this is alert");
+  elog("i am log");
+}
+#bind 绑定快捷键
+---------------------------------------------
+popup caidan1{
+  item("&item1",{url_open("https://www.baidu.com")});
+  separator();
+  item("&item2",{url_open("http://www.cctv.com")});
+}
+
+menubar("my caidan","caidan1");
+#编写一个菜单
+-------------------------------------------------
+popup beacon_bottom{
+  menu "attack"{
+    item("&item1",{url_open("http://www.baidu.com")});
+    item("&item2",{show_message("yes yes")});
+  }
+}
+#把菜单编写在工具栏中
+----------------------------------------------------
+数据模型
+
+targets       存储的目标信息   显示上线过的主机信息
+archives      显示最近的信息   显示最近的输出信息 （慎用很卡）
+beacons       显示所有的受感染的主机信息 显示在线和上线过的主机
+credentials   显示凭据信息  我们抓取过的密码信息和制作的票据信息
+downloads     显示下载信息  显示我们在受控端下载的信息
+keystrokes    记录键盘输入  当我们选择进程记录键盘的时候，会得到的键盘信息记录下来  
+screenshots   屏幕截图显示  显示我们截图的二进制信息流
+sites         托管的资产  看起来是我们创建的监听的端口个Stager回连的端口
+
+-----------------------------------------------------
+command showme{
+  println("ip address is:  ".targets()[$1]["address"]."\n os is:  ".targets()[$1]["os"]);
+}
+#制作一个带有targets的脚本
+-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
