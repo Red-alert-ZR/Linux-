@@ -1,0 +1,28 @@
+#如果你想连接目标计算机的内网计算机用户
+#但是自己没有目标计算机ip的cookie
+#这是应该找到中间人来进行正向连接，来跨过主机进行连接
+
+#多层正向连接
+建立一个tcp的listener
+Listener --> add --> Payload 选择 Beacon TCP
+-->Port 4444
+之后使用这个Listener来建立Attacks的攻击载荷
+Attacks --> Packages --> Windows Executable(s)
+Listener 选择 刚刚建立的； 
+Output 选择 Windows Service EXE
+#使目标计算机运行这个程序。
+
+在interact中
+connect to [ip] 
+#OK了
+-----------------------------------------------------------
+#多层反向连接
+#和多层正向连接差不多
+#但是反向连接是让对方主动来连接你自己的跳板
+interact --> Pivoting --> Listener 
+#那这个来当作中间人
+#设置好了之后
+只要是对方计算机运行了这个程序
+对方会主动连接你的跳板
+而且对方进行逆向追踪只能追踪到中间人
+
