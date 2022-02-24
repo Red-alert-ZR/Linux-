@@ -1,0 +1,7 @@
+在Cobalt Strike文件夹中运行终端
+输入
+./teamserver 192.168.161.174 202193
+再开启另一个终端
+输入
+/cobaltstrike
+进入Cobalt Strike 图形化界面
