@@ -1,0 +1,7 @@
+Attacks --> Packages --> MS Office Macro 
+复制给出的代码。
+再Windows系统上创建一个Word文档
+点击视图，点击宏，点击创建。
+在Project中选择Microsoft Word对象，点击ThisDocument，将已经复制的代码粘贴上去。
+点击保存，另存为一个 启用宏的 Word 文档。
+在目标运行 Word 文档时，可以写上一些信息，让目标启用宏；再搭配着免杀一起使用，效果会更好。
